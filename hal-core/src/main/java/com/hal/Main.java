@@ -1,16 +1,14 @@
 package com.hal;
 
 import com.hal.detector.HighCpuDetector;
-import com.hal.incident.Incident;
 import com.hal.incident.IncidentManager;
-import com.hal.incident.IncidentSeverity;
-import com.hal.incident.IncidentType;
 import com.hal.jvm.*;
 import com.hal.process.JVMDiscovery;
 
 import com.sun.tools.attach.VirtualMachine;
 
 import javax.management.MBeanServerConnection;
+import java.lang.management.ThreadInfo;
 import java.util.List;
 import java.util.Scanner;
 
@@ -18,9 +16,21 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("================================");
-        System.out.println("        HAL JVM DISCOVERY");
-        System.out.println("================================");
+        System.out.println(
+                "================================"
+        );
+
+        System.out.println(
+                "        HAL JVM DISCOVERY"
+        );
+
+        System.out.println(
+                "================================"
+        );
+
+        // =========================
+        // JVM DISCOVERY
+        // =========================
 
         JVMDiscovery discovery =
                 new JVMDiscovery();
@@ -37,22 +47,31 @@ public class Main {
             return;
         }
 
-        // Display JVMs
-        for (int i = 0; i < jvms.size(); i++) {
+        // =========================
+        // DISPLAY JVMs
+        // =========================
 
-            JVMInfo jvm = jvms.get(i);
+        for (int i = 0;
+             i < jvms.size();
+             i++) {
+
+            JVMInfo jvm =
+                    jvms.get(i);
 
             System.out.println();
+
             System.out.println(
                     "[" + (i + 1) + "]"
             );
 
             System.out.println(
-                    "PID: " + jvm.getPid()
+                    "PID: "
+                            + jvm.getPid()
             );
 
             System.out.println(
-                    "Command: " + jvm.getCommand()
+                    "Command: "
+                            + jvm.getCommand()
             );
 
             System.out.println(
@@ -60,7 +79,10 @@ public class Main {
             );
         }
 
-        // Select JVM
+        // =========================
+        // SELECT JVM
+        // =========================
+
         Scanner scanner =
                 new Scanner(System.in);
 
@@ -71,8 +93,8 @@ public class Main {
         int choice =
                 scanner.nextInt();
 
-        if (choice < 1 ||
-                choice > jvms.size()) {
+        if (choice < 1
+                || choice > jvms.size()) {
 
             System.out.println(
                     "Invalid selection."
@@ -87,11 +109,14 @@ public class Main {
         System.out.println();
 
         System.out.println(
-                "Selected PID: " +
-                        selectedJVM.getPid()
+                "Selected PID: "
+                        + selectedJVM.getPid()
         );
 
-        // Attach
+        // =========================
+        // ATTACH
+        // =========================
+
         JVMConnector connector =
                 new JVMConnector();
 
@@ -109,106 +134,149 @@ public class Main {
 
         try {
 
-            // Connect to JMX
+            // =========================
+            // JMX CONNECTION
+            // =========================
+
             MBeanServerConnection connection =
                     jmx.connect(vm);
 
-            // Monitor memory
+            // =========================
+            // INCIDENT MANAGER
+            // =========================
+
+            IncidentManager incidentManager =
+                    new IncidentManager();
+
+            // =========================
+            // MEMORY
+            // =========================
+
             RemoteJVMMonitor monitor =
                     new RemoteJVMMonitor();
 
             monitor.showMemory(connection);
 
+            // =========================
+            // CPU
+            // =========================
+
             RemoteCpuMonitor cpuMonitor =
                     new RemoteCpuMonitor(connection);
 
-            cpuMonitor.printTopCpuThreads();
+            HighCpuDetector highCpuDetector =
+                    new HighCpuDetector(80.0);
+
+            List<RemoteCpuMonitor.ThreadCpuData>
+                    cpuThreads =
+                    cpuMonitor.getTopCpuThreads();
+
+            for (
+                    RemoteCpuMonitor.ThreadCpuData thread
+                    : cpuThreads
+            ) {
+
+                ThreadInfo threadInfo =
+                        cpuMonitor.getThreadInfo(
+                                thread.threadId()
+                        );
+
+                if (threadInfo == null) {
+                    continue;
+                }
+
+                highCpuDetector.check(
+                        thread.threadId(),
+                        threadInfo.getThreadName(),
+                        thread.getCpuPercentage(),
+                        getTopStackLocation(
+                                threadInfo
+                        ),
+                        incidentManager
+                );
+            }
+
+            // =========================
+            // GC
+            // =========================
 
             RemoteGcMonitor gcMonitor =
                     new RemoteGcMonitor(connection);
 
             gcMonitor.printGcInformation();
 
+            // =========================
+            // CLASS LOADING
+            // =========================
+
             RemoteClassLoadingMonitor classMonitor =
-                    new RemoteClassLoadingMonitor(connection);
+                    new RemoteClassLoadingMonitor(
+                            connection
+                    );
 
             classMonitor.printClassLoadingInformation();
 
+            // =========================
+            // RUNTIME
+            // =========================
+
             RemoteRuntimeMonitor runtimeMonitor =
-                    new RemoteRuntimeMonitor(connection);
+                    new RemoteRuntimeMonitor(
+                            connection
+                    );
 
             runtimeMonitor.printRuntimeInformation();
+
+            // =========================
+            // LOCKS
+            // =========================
 
             RemoteLockMonitor lockMonitor =
                     new RemoteLockMonitor(connection);
 
             lockMonitor.printLockInformation();
 
+            // =========================
+            // DEADLOCK
+            // =========================
+
             RemoteDeadlockMonitor deadlockMonitor =
-                    new RemoteDeadlockMonitor(connection);
+                    new RemoteDeadlockMonitor(
+                            connection
+                    );
 
             deadlockMonitor.detectDeadlocks();
 
+            // =========================
+            // STACK TRACES
+            // =========================
+
             RemoteStackTraceMonitor stackMonitor =
-                    new RemoteStackTraceMonitor(connection);
+                    new RemoteStackTraceMonitor(
+                            connection
+                    );
 
             stackMonitor.printStackTraces();
+
+            // =========================
+            // THREADS
+            // =========================
 
             RemoteThreadMonitor threadMonitor =
                     new RemoteThreadMonitor();
 
             threadMonitor.showThreads(connection);
 
-            IncidentManager incidentManager =
-                    new IncidentManager();
-
-            Incident incident1 =
-                    new Incident(
-                            IncidentType.DEADLOCK,
-                            IncidentSeverity.CRITICAL,
-                            "JVM deadlock detected",
-                            "Two threads are waiting for each other's locks.",
-                            "Deadlock-Thread-A",
-                            "DeadlockTest.java"
-                    );
-
-            Incident incident2 =
-                    new Incident(
-                            IncidentType.HIGH_CPU,
-                            IncidentSeverity.WARNING,
-                            "High CPU usage detected",
-                            "A thread is consuming significant CPU.",
-                            "CPU-Heavy-Thread",
-                            "TestApplication.java"
-                    );
-
-            incidentManager.addIncident(incident1);
-            incidentManager.addIncident(incident2);
+            // =========================
+            // PRINT INCIDENTS
+            // =========================
 
             incidentManager.printIncidents();
 
-            DeadlockDetector deadlockDetector =
-                    new DeadlockDetector();
+            // =========================
+            // DISCONNECT
+            // =========================
 
-            deadlockDetector.detect(connection);
-
-
-
-            HighCpuDetector detector =
-                    new HighCpuDetector(80.0);
-
-            detector.check(
-                    123,
-                    "CPU-Heavy-Thread",
-                    95.5,
-                    "TestApplication.java:25",
-                    incidentManager
-            );
-
-            incidentManager.printIncidents();
-
-
-            // Disconnect JMX
             jmx.disconnect();
 
         } catch (Exception e) {
@@ -221,8 +289,20 @@ public class Main {
 
         } finally {
 
-            // Detach from JVM
             connector.detach();
         }
+    }
+
+    private static String getTopStackLocation(
+            ThreadInfo threadInfo) {
+
+        StackTraceElement[] stack =
+                threadInfo.getStackTrace();
+
+        if (stack.length == 0) {
+            return "Unknown";
+        }
+
+        return stack[0].toString();
     }
 }
