@@ -15,6 +15,7 @@ public class TestApplication {
         );
 
         DeadlockTest.start();
+        ExceptionTest.start();
 
         while (true) {
             Thread.sleep(1000);
