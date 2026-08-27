@@ -1,5 +1,10 @@
 package com.hal.jvm;
 
+import com.hal.incident.Incident;
+import com.hal.incident.IncidentManager;
+import com.hal.incident.IncidentSeverity;
+import com.hal.incident.IncidentType;
+
 import javax.management.MBeanServerConnection;
 import java.io.IOException;
 import java.lang.management.ManagementFactory;
@@ -11,7 +16,8 @@ public class RemoteDeadlockMonitor {
     private final ThreadMXBean threadBean;
 
     public RemoteDeadlockMonitor(
-            MBeanServerConnection connection) throws IOException {
+            MBeanServerConnection connection)
+            throws IOException {
 
         this.threadBean =
                 ManagementFactory.getPlatformMXBean(
@@ -20,10 +26,13 @@ public class RemoteDeadlockMonitor {
                 );
     }
 
-    public void detectDeadlocks() {
+    public void detectDeadlocks(
+            IncidentManager incidentManager) {
 
         System.out.println();
-        System.out.println("===== DEADLOCK DETECTION =====");
+        System.out.println(
+                "===== DEADLOCK DETECTION ====="
+        );
 
         long[] deadlockedThreads =
                 threadBean.findDeadlockedThreads();
@@ -91,6 +100,20 @@ public class RemoteDeadlockMonitor {
             System.out.println(
                     "Lock Owner ID: "
                             + threadInfo.getLockOwnerId()
+            );
+
+            Incident incident =
+                    new Incident(
+                            IncidentType.DEADLOCK,
+                            IncidentSeverity.CRITICAL,
+                            "JVM deadlock detected",
+                            "Thread is deadlocked with another thread.",
+                            threadInfo.getThreadName(),
+                            threadInfo.getLockName()
+                    );
+
+            incidentManager.addIncident(
+                    incident
             );
         }
     }

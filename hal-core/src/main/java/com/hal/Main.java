@@ -245,7 +245,9 @@ public class Main {
                             connection
                     );
 
-            deadlockMonitor.detectDeadlocks();
+            deadlockMonitor.detectDeadlocks(
+                    incidentManager
+            );
 
             // =========================
             // STACK TRACES
