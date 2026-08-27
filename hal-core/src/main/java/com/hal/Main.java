@@ -1,5 +1,6 @@
 package com.hal;
 
+import com.hal.detector.HighCpuDetector;
 import com.hal.incident.Incident;
 import com.hal.incident.IncidentManager;
 import com.hal.incident.IncidentSeverity;
@@ -190,6 +191,21 @@ public class Main {
                     new DeadlockDetector();
 
             deadlockDetector.detect(connection);
+
+
+
+            HighCpuDetector detector =
+                    new HighCpuDetector(80.0);
+
+            detector.check(
+                    123,
+                    "CPU-Heavy-Thread",
+                    95.5,
+                    "TestApplication.java:25",
+                    incidentManager
+            );
+
+            incidentManager.printIncidents();
 
 
             // Disconnect JMX
