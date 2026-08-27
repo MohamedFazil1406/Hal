@@ -1,6 +1,7 @@
 package com.hal;
 
 import com.hal.detector.HighCpuDetector;
+import com.hal.detector.MemoryDetector;
 import com.hal.incident.IncidentManager;
 import com.hal.jvm.*;
 import com.hal.process.JVMDiscovery;
@@ -8,6 +9,7 @@ import com.hal.process.JVMDiscovery;
 import com.sun.tools.attach.VirtualMachine;
 
 import javax.management.MBeanServerConnection;
+import java.lang.management.MemoryUsage;
 import java.lang.management.ThreadInfo;
 import java.util.List;
 import java.util.Scanner;
@@ -156,6 +158,18 @@ public class Main {
                     new RemoteJVMMonitor();
 
             monitor.showMemory(connection);
+
+            MemoryUsage heapUsage =
+                    monitor.getHeapMemoryUsage(connection);
+
+            MemoryDetector memoryDetector =
+                    new MemoryDetector(80.0);
+
+            memoryDetector.check(
+                    heapUsage.getUsed(),
+                    heapUsage.getMax(),
+                    incidentManager
+            );
 
             // =========================
             // CPU

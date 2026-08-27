@@ -11,18 +11,13 @@ public class RemoteJVMMonitor {
             MBeanServerConnection connection)
             throws Exception {
 
-        MemoryMXBean memoryBean =
-                ManagementFactory.newPlatformMXBeanProxy(
-                        connection,
-                        ManagementFactory.MEMORY_MXBEAN_NAME,
-                        MemoryMXBean.class
-                );
-
         MemoryUsage heap =
-                memoryBean.getHeapMemoryUsage();
+                getHeapMemoryUsage(connection);
 
         System.out.println();
-        System.out.println("===== TARGET JVM MEMORY =====");
+        System.out.println(
+                "===== TARGET JVM MEMORY ====="
+        );
 
         System.out.println(
                 "Heap Used: " +
@@ -38,6 +33,20 @@ public class RemoteJVMMonitor {
                 "Heap Max: " +
                         formatMB(heap.getMax())
         );
+    }
+
+    public MemoryUsage getHeapMemoryUsage(
+            MBeanServerConnection connection)
+            throws Exception {
+
+        MemoryMXBean memoryBean =
+                ManagementFactory.newPlatformMXBeanProxy(
+                        connection,
+                        ManagementFactory.MEMORY_MXBEAN_NAME,
+                        MemoryMXBean.class
+                );
+
+        return memoryBean.getHeapMemoryUsage();
     }
 
     private String formatMB(long bytes) {
