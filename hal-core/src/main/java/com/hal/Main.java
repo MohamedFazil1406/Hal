@@ -124,6 +124,11 @@ public class Main {
 
             gcMonitor.printGcInformation();
 
+            RemoteClassLoadingMonitor classMonitor =
+                    new RemoteClassLoadingMonitor(connection);
+
+            classMonitor.printClassLoadingInformation();
+
             RemoteStackTraceMonitor stackMonitor =
                     new RemoteStackTraceMonitor(connection);
 
