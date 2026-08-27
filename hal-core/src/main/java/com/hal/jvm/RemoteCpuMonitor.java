@@ -5,8 +5,9 @@ import java.io.IOException;
 import java.lang.management.ManagementFactory;
 import java.lang.management.ThreadInfo;
 import java.lang.management.ThreadMXBean;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 
 public class RemoteCpuMonitor {
 
@@ -31,93 +32,154 @@ public class RemoteCpuMonitor {
     public void printTopCpuThreads() throws Exception {
 
         System.out.println();
-        System.out.println("===== TARGET JVM CPU =====");
+        System.out.println("===== TOP CPU THREADS =====");
 
         long[] threadIds = threadBean.getAllThreadIds();
 
-        Map<Long, Long> before = new HashMap<>();
+        List<ThreadCpuData> cpuData = new ArrayList<>();
 
+        // First measurement
         for (long threadId : threadIds) {
 
             long cpuTime =
                     threadBean.getThreadCpuTime(threadId);
 
             if (cpuTime != -1) {
-                before.put(threadId, cpuTime);
+
+                cpuData.add(
+                        new ThreadCpuData(
+                                threadId,
+                                cpuTime
+                        )
+                );
             }
         }
 
-        // Measure CPU usage over one second
+        // Measurement interval
         Thread.sleep(1000);
 
-        long hottestThreadId = -1;
-        long highestCpuTime = 0;
-
-        for (long threadId : threadIds) {
+        // Second measurement
+        for (ThreadCpuData data : cpuData) {
 
             long after =
-                    threadBean.getThreadCpuTime(threadId);
+                    threadBean.getThreadCpuTime(
+                            data.threadId()
+                    );
 
-            Long beforeTime = before.get(threadId);
-
-            if (beforeTime == null || after == -1) {
+            if (after == -1) {
+                data.setCpuDelta(0);
                 continue;
             }
 
-            long cpuDelta = after - beforeTime;
+            data.setCpuDelta(
+                    after - data.beforeCpuTime()
+            );
+        }
 
-            if (cpuDelta > highestCpuTime) {
-                highestCpuTime = cpuDelta;
-                hottestThreadId = threadId;
+        // Sort highest CPU first
+        cpuData.sort(
+                Comparator.comparingLong(
+                        ThreadCpuData::cpuDelta
+                ).reversed()
+        );
+
+        int limit =
+                Math.min(5, cpuData.size());
+
+        for (int i = 0; i < limit; i++) {
+
+            ThreadCpuData data =
+                    cpuData.get(i);
+
+            ThreadInfo threadInfo =
+                    threadBean.getThreadInfo(
+                            data.threadId()
+                    );
+
+            if (threadInfo == null) {
+                continue;
             }
-        }
 
-        if (hottestThreadId == -1) {
-            System.out.println("No CPU information available.");
-            return;
-        }
+            double cpuPercentage =
+                    (data.cpuDelta()
+                            / 1_000_000_000.0) * 100.0;
 
-        ThreadInfo threadInfo =
-                threadBean.getThreadInfo(hottestThreadId);
-
-        if (threadInfo == null) {
-            System.out.println("Thread no longer exists.");
-            return;
-        }
-
-        double cpuPercentage =
-                (highestCpuTime / 1_000_000_000.0) * 100.0;
-
-        System.out.println();
-        System.out.println("HOTTEST THREAD");
-        System.out.println("-------------------------------");
-
-        System.out.println(
-                "Thread ID: " + hottestThreadId
-        );
-
-        System.out.println(
-                "Thread Name: " + threadInfo.getThreadName()
-        );
-
-        System.out.println(
-                "State: " + threadInfo.getThreadState()
-        );
-
-        System.out.printf(
-                "CPU Usage: %.2f%%%n",
-                cpuPercentage
-        );
-
-        System.out.println();
-        System.out.println("Stack Trace:");
-
-        for (StackTraceElement element :
-                threadInfo.getStackTrace()) {
+            System.out.println();
+            System.out.println(
+                    "[" + (i + 1) + "]"
+            );
 
             System.out.println(
-                    "    at " + element
+                    "Thread ID: "
+                            + data.threadId()
             );
+
+            System.out.println(
+                    "Thread Name: "
+                            + threadInfo.getThreadName()
+            );
+
+            System.out.println(
+                    "State: "
+                            + threadInfo.getThreadState()
+            );
+
+            System.out.printf(
+                    "CPU Usage: %.2f%%%n",
+                    cpuPercentage
+            );
+
+            System.out.println(
+                    "Location: "
+            );
+
+            StackTraceElement[] stack =
+                    threadInfo.getStackTrace();
+
+            if (stack.length > 0) {
+
+                System.out.println(
+                        "    at " + stack[0]
+                );
+
+            } else {
+
+                System.out.println(
+                        "    No stack trace available"
+                );
+            }
+        }
+    }
+
+    private static class ThreadCpuData {
+
+        private final long threadId;
+        private final long beforeCpuTime;
+
+        private long cpuDelta;
+
+        public ThreadCpuData(
+                long threadId,
+                long beforeCpuTime) {
+
+            this.threadId = threadId;
+            this.beforeCpuTime = beforeCpuTime;
+        }
+
+        public long threadId() {
+            return threadId;
+        }
+
+        public long beforeCpuTime() {
+            return beforeCpuTime;
+        }
+
+        public long cpuDelta() {
+            return cpuDelta;
+        }
+
+        public void setCpuDelta(long cpuDelta) {
+            this.cpuDelta = cpuDelta;
         }
     }
 }
