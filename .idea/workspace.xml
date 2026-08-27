@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="35894566-67be-4e75-8668-acf4efa0b623" name="Changes" comment="" />
+    <list default="true" id="35894566-67be-4e75-8668-acf4efa0b623" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/hal-test-app/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hal-core/src/main/java/com/hal/TestApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/hal-test-app/src/main/java/com/hal/test/TestApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,27 +25,27 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/hal-core" />
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0008684119171225" />
-      <entry key="MS500" value="1.6918961116162157" />
-      <entry key="S2" value="5.625614736068291" />
-      <entry key="S5" value="8.552454788702283" />
-      <entry key="S10" value="10.542291451180603" />
-      <entry key="S30" value="14.786925540746378" />
-      <entry key="S60" value="21.48060471435947" />
-      <entry key="M2" value="31.854406394505954" />
-      <entry key="M5" value="44.8005241976296" />
-      <entry key="M10" value="55.30802139424278" />
-      <entry key="M15" value="64.6040214129452" />
-      <entry key="M30" value="84.3954843328222" />
-      <entry key="H1" value="102.37897837759277" />
-      <entry key="H2" value="114.69816139842776" />
-      <entry key="H4" value="121.93290511720956" />
-      <entry key="D1" value="128.59358844070323" />
-      <entry key="W1" value="129.79751182191822" />
+      <entry key="MS100" value="1.565688560301901" />
+      <entry key="MS500" value="2.5251773971368374" />
+      <entry key="S2" value="2.877205510279914" />
+      <entry key="S5" value="3.7208825952260263" />
+      <entry key="S10" value="7.182040890244223" />
+      <entry key="S30" value="18.014676071080036" />
+      <entry key="S60" value="25.533602416577672" />
+      <entry key="M2" value="35.79516813740889" />
+      <entry key="M5" value="56.51822374346543" />
+      <entry key="M10" value="74.4604368513794" />
+      <entry key="M15" value="86.99692756835375" />
+      <entry key="M30" value="111.20299873305882" />
+      <entry key="H1" value="132.71084153165464" />
+      <entry key="H2" value="147.49629267411578" />
+      <entry key="H4" value="156.22368292932745" />
+      <entry key="D1" value="164.29206591952354" />
+      <entry key="W1" value="165.7540066399087" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
@@ -60,23 +67,23 @@
       <entry key="W1" value="0.0" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9145946902800873" />
-      <entry key="MS500" value="1.6590683337663896" />
-      <entry key="S2" value="5.592982567396244" />
-      <entry key="S5" value="8.532104123172532" />
-      <entry key="S10" value="10.530010149484568" />
-      <entry key="S30" value="14.781135228740126" />
-      <entry key="S60" value="21.475866496965775" />
-      <entry key="M2" value="31.850520682190176" />
-      <entry key="M5" value="44.79821397106016" />
-      <entry key="M10" value="55.306602458610996" />
-      <entry key="M15" value="64.60294034112982" />
-      <entry key="M30" value="84.39480772811217" />
-      <entry key="H1" value="102.37857966906829" />
-      <entry key="H2" value="114.69794150969551" />
-      <entry key="H4" value="121.93278916089817" />
-      <entry key="D1" value="128.5935681936079" />
-      <entry key="W1" value="129.79750890571134" />
+      <entry key="MS100" value="1.498030322600088" />
+      <entry key="MS500" value="2.504038888298427" />
+      <entry key="S2" value="2.871147221476279" />
+      <entry key="S5" value="3.711279882321497" />
+      <entry key="S10" value="7.1519065955298835" />
+      <entry key="S30" value="17.972095975910772" />
+      <entry key="S60" value="25.502187895987305" />
+      <entry key="M2" value="35.77539115642731" />
+      <entry key="M5" value="56.50844119012325" />
+      <entry key="M10" value="74.45494564143578" />
+      <entry key="M15" value="86.99303895063514" />
+      <entry key="M30" value="111.20086175073992" />
+      <entry key="H1" value="132.70969364483017" />
+      <entry key="H2" value="147.49569222757646" />
+      <entry key="H4" value="156.22337498080392" />
+      <entry key="D1" value="164.2920134126694" />
+      <entry key="W1" value="165.7539991084363" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -84,6 +91,9 @@
   &quot;fromUser&quot;: false
 }</component>
   <component name="ProjectId" id="3IUfZki44Q2bhfdhZO1PJZBs8Wm" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -98,7 +108,7 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
@@ -107,13 +117,42 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "D:/fazil/100Xdev/Hal/hal-core/src/main/java/com/hal/Main.java",
+    "onboarding.tips.debug.path": "D:/fazil/100Xdev/Hal/hal-test-app/src/main/java/com/hal/Main.java",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "to.speed.mode.migration.done": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\fazil\100Xdev\Hal\hal-test-app\src\main\java\com\hal\test" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="25" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.hal.Main" />
+      <module name="hal-core" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestApplication" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="25" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.hal.test.TestApplication" />
+      <module name="hal-test-app" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.TestApplication" />
+      <item itemvalue="Application.Main" />
+    </list>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>

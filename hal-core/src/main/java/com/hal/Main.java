@@ -114,6 +114,11 @@ public class Main {
 
             monitor.showMemory(connection);
 
+            RemoteStackTraceMonitor stackMonitor =
+                    new RemoteStackTraceMonitor(connection);
+
+            stackMonitor.printStackTraces();
+
             RemoteThreadMonitor threadMonitor =
                     new RemoteThreadMonitor();
 
@@ -123,6 +128,7 @@ public class Main {
                     new DeadlockDetector();
 
             deadlockDetector.detect(connection);
+
 
             // Disconnect JMX
             jmx.disconnect();

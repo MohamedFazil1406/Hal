@@ -15,6 +15,7 @@
 
     <modules>
         <module>hal-core</module>
+        <module>hal-test-app</module>
     </modules>
 
     <properties>
