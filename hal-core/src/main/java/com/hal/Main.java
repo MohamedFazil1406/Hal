@@ -1,5 +1,8 @@
 package com.hal;
 
+import com.hal.incident.Incident;
+import com.hal.incident.IncidentSeverity;
+import com.hal.incident.IncidentType;
 import com.hal.jvm.*;
 import com.hal.process.JVMDiscovery;
 
@@ -153,6 +156,18 @@ public class Main {
                     new RemoteThreadMonitor();
 
             threadMonitor.showThreads(connection);
+
+            Incident incident =
+                    new Incident(
+                            IncidentType.DEADLOCK,
+                            IncidentSeverity.CRITICAL,
+                            "JVM deadlock detected",
+                            "Two or more threads are waiting for locks held by each other.",
+                            "Deadlock-Thread-A",
+                            "DeadlockTest.java"
+                    );
+
+            incident.print();
 
             DeadlockDetector deadlockDetector =
                     new DeadlockDetector();
