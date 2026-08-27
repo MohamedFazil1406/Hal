@@ -114,6 +114,11 @@ public class Main {
 
             monitor.showMemory(connection);
 
+            RemoteCpuMonitor cpuMonitor =
+                    new RemoteCpuMonitor(connection);
+
+            cpuMonitor.printTopCpuThreads();
+
             RemoteStackTraceMonitor stackMonitor =
                     new RemoteStackTraceMonitor(connection);
 
