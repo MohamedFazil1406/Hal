@@ -139,6 +139,11 @@ public class Main {
 
             lockMonitor.printLockInformation();
 
+            RemoteDeadlockMonitor deadlockMonitor =
+                    new RemoteDeadlockMonitor(connection);
+
+            deadlockMonitor.detectDeadlocks();
+
             RemoteStackTraceMonitor stackMonitor =
                     new RemoteStackTraceMonitor(connection);
 
