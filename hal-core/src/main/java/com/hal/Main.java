@@ -119,6 +119,11 @@ public class Main {
 
             cpuMonitor.printTopCpuThreads();
 
+            RemoteGcMonitor gcMonitor =
+                    new RemoteGcMonitor(connection);
+
+            gcMonitor.printGcInformation();
+
             RemoteStackTraceMonitor stackMonitor =
                     new RemoteStackTraceMonitor(connection);
 
