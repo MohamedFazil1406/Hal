@@ -129,6 +129,11 @@ public class Main {
 
             classMonitor.printClassLoadingInformation();
 
+            RemoteRuntimeMonitor runtimeMonitor =
+                    new RemoteRuntimeMonitor(connection);
+
+            runtimeMonitor.printRuntimeInformation();
+
             RemoteStackTraceMonitor stackMonitor =
                     new RemoteStackTraceMonitor(connection);
 
