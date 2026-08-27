@@ -134,6 +134,11 @@ public class Main {
 
             runtimeMonitor.printRuntimeInformation();
 
+            RemoteLockMonitor lockMonitor =
+                    new RemoteLockMonitor(connection);
+
+            lockMonitor.printLockInformation();
+
             RemoteStackTraceMonitor stackMonitor =
                     new RemoteStackTraceMonitor(connection);
 
