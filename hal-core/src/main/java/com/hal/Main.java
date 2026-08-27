@@ -250,6 +250,10 @@ public class Main {
 
             lockMonitor.printLockInformation();
 
+            lockMonitor.detectLockContention(
+                    incidentManager
+            );
+
             // =========================
             // DEADLOCK
             // =========================
