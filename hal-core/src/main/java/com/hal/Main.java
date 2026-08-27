@@ -1,6 +1,7 @@
 package com.hal;
 
 import com.hal.incident.Incident;
+import com.hal.incident.IncidentManager;
 import com.hal.incident.IncidentSeverity;
 import com.hal.incident.IncidentType;
 import com.hal.jvm.*;
@@ -157,17 +158,33 @@ public class Main {
 
             threadMonitor.showThreads(connection);
 
-            Incident incident =
+            IncidentManager incidentManager =
+                    new IncidentManager();
+
+            Incident incident1 =
                     new Incident(
                             IncidentType.DEADLOCK,
                             IncidentSeverity.CRITICAL,
                             "JVM deadlock detected",
-                            "Two or more threads are waiting for locks held by each other.",
+                            "Two threads are waiting for each other's locks.",
                             "Deadlock-Thread-A",
                             "DeadlockTest.java"
                     );
 
-            incident.print();
+            Incident incident2 =
+                    new Incident(
+                            IncidentType.HIGH_CPU,
+                            IncidentSeverity.WARNING,
+                            "High CPU usage detected",
+                            "A thread is consuming significant CPU.",
+                            "CPU-Heavy-Thread",
+                            "TestApplication.java"
+                    );
+
+            incidentManager.addIncident(incident1);
+            incidentManager.addIncident(incident2);
+
+            incidentManager.printIncidents();
 
             DeadlockDetector deadlockDetector =
                     new DeadlockDetector();
