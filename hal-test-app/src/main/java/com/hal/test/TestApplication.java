@@ -10,15 +10,18 @@ public class TestApplication {
         );
 
         System.out.println(
-                "PID: "
-                        + ProcessHandle.current().pid()
+                "PID: " +
+                        ProcessHandle.current().pid()
         );
 
-        DeadlockTest.start();
-        ExceptionTest.start();
+        Thread.sleep(3000);
 
-        while (true) {
-            Thread.sleep(1000);
-        }
+        System.out.println(
+                "Throwing test exception..."
+        );
+
+        throw new RuntimeException(
+                "HAL test exception"
+        );
     }
 }

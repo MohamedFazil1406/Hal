@@ -16,6 +16,7 @@
     <modules>
         <module>hal-core</module>
         <module>hal-test-app</module>
+        <module>hal-agent</module>
     </modules>
 
     <properties>

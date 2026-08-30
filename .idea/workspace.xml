@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="35894566-67be-4e75-8668-acf4efa0b623" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/hal-core/src/main/java/com/hal/jvm/RemoteLockMonitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/hal-core/src/main/java/com/hal/jvm/RemoteLockMonitor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hal-agent/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hal-agent/src/main/java/com/hal/agent/HALAgent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,65 +25,65 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/hal-core" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.6554641792883498" />
-      <entry key="MS500" value="2.539407420421676" />
-      <entry key="S2" value="2.8700088010665086" />
-      <entry key="S5" value="3.033384072948009" />
-      <entry key="S10" value="3.4836341490536054" />
-      <entry key="S30" value="4.653525064797519" />
-      <entry key="S60" value="5.228891050500784" />
-      <entry key="M2" value="5.6146363017775975" />
-      <entry key="M5" value="6.94792504476772" />
-      <entry key="M10" value="10.193941459769851" />
-      <entry key="M15" value="13.598642580709456" />
-      <entry key="M30" value="28.764983248790337" />
-      <entry key="H1" value="70.56194619002622" />
-      <entry key="H2" value="138.16184628299152" />
-      <entry key="H4" value="205.73262321686252" />
-      <entry key="D1" value="295.70776835736956" />
-      <entry key="W1" value="315.5429496661318" />
+      <entry key="MS100" value="1.1188260583376217" />
+      <entry key="MS500" value="2.913560138406407" />
+      <entry key="S2" value="6.720453083610163" />
+      <entry key="S5" value="12.172337838017333" />
+      <entry key="S10" value="16.30061397828154" />
+      <entry key="S30" value="20.38935497814179" />
+      <entry key="S60" value="21.683905758085054" />
+      <entry key="M2" value="22.820577603519286" />
+      <entry key="M5" value="25.390601994131053" />
+      <entry key="M10" value="29.18027816953478" />
+      <entry key="M15" value="32.7946046666507" />
+      <entry key="M30" value="47.4823599251365" />
+      <entry key="H1" value="88.13672792537213" />
+      <entry key="H2" value="155.7565318983025" />
+      <entry key="H4" value="224.6710913383625" />
+      <entry key="D1" value="317.72715401468855" />
+      <entry key="W1" value="338.3932622140633" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
       <entry key="MS500" value="0.0" />
-      <entry key="S2" value="2.0767458701247706E-218" />
-      <entry key="S5" value="8.451880387177358E-88" />
-      <entry key="S10" value="2.90721178918519E-44" />
-      <entry key="S30" value="3.074861487734094E-15" />
-      <entry key="S60" value="5.545143359494048E-8" />
-      <entry key="M2" value="2.3548128077395127E-4" />
-      <entry key="M5" value="0.035382014464345274" />
-      <entry key="M10" value="0.18810107512809518" />
-      <entry key="M15" value="0.3282924173964361" />
-      <entry key="M30" value="0.57296807711812" />
-      <entry key="H1" value="0.7569465483890656" />
-      <entry key="H2" value="0.8700267515364489" />
-      <entry key="H4" value="0.9327522455274216" />
-      <entry key="D1" value="0.9884644407972704" />
-      <entry key="W1" value="0.9983438572191454" />
+      <entry key="S2" value="1.1493885388222355E-280" />
+      <entry key="S5" value="1.0572720342380232E-112" />
+      <entry key="S10" value="1.028237343339573E-56" />
+      <entry key="S30" value="2.1745252627244616E-19" />
+      <entry key="S60" value="4.663180526984196E-10" />
+      <entry key="M2" value="2.159439864174087E-5" />
+      <entry key="M5" value="0.013606187321092178" />
+      <entry key="M10" value="0.11664556280070065" />
+      <entry key="M15" value="0.23873283124897451" />
+      <entry key="M30" value="0.48860293823203144" />
+      <entry key="H1" value="0.6990013864306929" />
+      <entry key="H2" value="0.8360630277859992" />
+      <entry key="H4" value="0.9143648220409611" />
+      <entry key="D1" value="0.9851898259067715" />
+      <entry key="W1" value="0.9978707073494641" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.5441481915725659" />
-      <entry key="MS500" value="2.498963675733327" />
-      <entry key="S2" value="2.858200849952163" />
-      <entry key="S5" value="3.028386269987283" />
-      <entry key="S10" value="3.4808233783720426" />
-      <entry key="S30" value="4.652324678928021" />
-      <entry key="S60" value="5.228226443137869" />
-      <entry key="M2" value="5.614513705170166" />
-      <entry key="M5" value="6.982961927178009" />
-      <entry key="M10" value="10.381483969671539" />
-      <entry key="M15" value="13.926322392882843" />
-      <entry key="M30" value="29.33735109879776" />
-      <entry key="H1" value="71.31830490316402" />
-      <entry key="H2" value="139.03135549071519" />
-      <entry key="H4" value="206.66500535404663" />
-      <entry key="D1" value="296.6961464984683" />
-      <entry key="W1" value="316.54128042192986" />
+      <entry key="MS100" value="0.9396005155719028" />
+      <entry key="MS500" value="2.7385043327514564" />
+      <entry key="S2" value="6.615116914645386" />
+      <entry key="S5" value="12.087889029109984" />
+      <entry key="S10" value="16.241602765198294" />
+      <entry key="S30" value="20.364064094197147" />
+      <entry key="S60" value="21.670390112054587" />
+      <entry key="M2" value="22.81358087732812" />
+      <entry key="M5" value="25.40122402662301" />
+      <entry key="M10" value="29.295141931454612" />
+      <entry key="M15" value="33.03193289653837" />
+      <entry key="M30" value="47.96997036862781" />
+      <entry key="H1" value="88.83494588030197" />
+      <entry key="H2" value="156.59197721985313" />
+      <entry key="H4" value="225.5850331479416" />
+      <entry key="D1" value="318.7122477910737" />
+      <entry key="W1" value="339.3911183924686" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -112,7 +117,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "D:/fazil/100Xdev/Hal/hal-test-app/src/main/java/com/hal/Main.java",
+    "onboarding.tips.debug.path": "D:/fazil/100Xdev/Hal/hal-agent/src/main/java/com/hal/Main.java",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -124,7 +129,7 @@
       <recent name="D:\fazil\100Xdev\Hal\hal-test-app\src\main\java\com\hal\test" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.TestApplication">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="25" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -139,6 +144,7 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.hal.test.TestApplication" />
       <module name="hal-test-app" />
+      <option name="VM_PARAMETERS" value="-javaagent:D:\fazil\100Xdev\Hal\hal-agent\target\hal-agent-1.0-SNAPSHOT.jar" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -181,6 +187,11 @@
           <url>file://$PROJECT_DIR$/HAL/hal/src/main/java/com/hal/Main.java</url>
           <line>13</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/hal-agent/src/main/java/com/hal/Main.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
