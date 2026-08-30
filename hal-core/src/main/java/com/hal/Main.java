@@ -304,27 +304,139 @@ public class Main {
             // =========================
             // DISCONNECT
             // =========================
-
-            // =========================
-// KEEP HAL RUNNING
+// =========================
+// CONTINUOUS MONITORING
 // =========================
 
             System.out.println();
             System.out.println("================================");
             System.out.println(" HAL MONITORING ACTIVE");
-            System.out.println(" Listening for exception events");
-            System.out.println(" Port: 5005");
             System.out.println("================================");
 
-            System.out.println();
-            System.out.println("Press ENTER to stop HAL.");
+            System.out.println(
+                    "Monitoring PID: "
+                            + selectedJVM.getPid()
+            );
+
+            System.out.println(
+                    "Checking every 5 seconds..."
+            );
+
+            System.out.println(
+                    "Press ENTER to stop HAL."
+            );
+
+// Consume leftover newline
+            scanner.nextLine();
+
+// Monitoring loop
+            Thread monitoringThread =
+                    new Thread(
+                            () -> {
+
+                                while (!Thread.currentThread()
+                                        .isInterrupted()) {
+
+                                    try {
+
+                                        System.out.println();
+                                        System.out.println(
+                                                "===== MONITORING CHECK ====="
+                                        );
+
+                                        // Memory
+                                        MemoryUsage heap =
+                                                monitor.getHeapMemoryUsage(
+                                                        connection
+                                                );
+
+                                        memoryDetector.check(
+                                                heap.getUsed(),
+                                                heap.getMax(),
+                                                incidentManager
+                                        );
+
+                                        // CPU
+                                        List<RemoteCpuMonitor.ThreadCpuData>
+                                                topThreads =
+                                                cpuMonitor.getTopCpuThreads();
+
+                                        for (
+                                                RemoteCpuMonitor.ThreadCpuData thread
+                                                : topThreads
+                                        ) {
+
+                                            ThreadInfo info =
+                                                    cpuMonitor.getThreadInfo(
+                                                            thread.threadId()
+                                                    );
+
+                                            if (info == null) {
+                                                continue;
+                                            }
+
+                                            highCpuDetector.check(
+                                                    thread.threadId(),
+                                                    info.getThreadName(),
+                                                    thread.getCpuPercentage(),
+                                                    getTopStackLocation(info),
+                                                    incidentManager
+                                            );
+                                        }
+
+                                        // Locks
+                                        lockMonitor.detectLockContention(
+                                                incidentManager
+                                        );
+
+                                        // Deadlocks
+                                        deadlockMonitor.detectDeadlocks(
+                                                incidentManager
+                                        );
+
+                                        System.out.println(
+                                                "Monitoring check completed."
+                                        );
+
+                                        Thread.sleep(5000);
+
+                                    } catch (InterruptedException e) {
+
+                                        Thread.currentThread()
+                                                .interrupt();
+
+                                        break;
+
+                                    } catch (Exception e) {
+
+                                        System.out.println(
+                                                "Monitoring check failed."
+                                        );
+
+                                        e.printStackTrace();
+                                    }
+                                }
+
+                            },
+                            "HAL-Monitoring-Thread"
+                    );
+
+            monitoringThread.start();
 
             scanner.nextLine();
-            scanner.nextLine();
+
+            monitoringThread.interrupt();
+
+            try {
+
+                monitoringThread.join();
+
+            } catch (InterruptedException e) {
+
+                Thread.currentThread().interrupt();
+            }
 
             exceptionServer.stop();
-
-            jmx.disconnect();
 
         } catch (Exception e) {
 

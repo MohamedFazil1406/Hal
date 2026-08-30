@@ -11,7 +11,10 @@ public class IncidentManager {
 
     public void addIncident(Incident incident) {
 
-        if (incident == null) {
+        if (hasIncident(
+                incident.getType(),
+                incident.getThreadName())) {
+
             return;
         }
 
@@ -57,5 +60,22 @@ public class IncidentManager {
     public void clear() {
 
         incidents.clear();
+    }
+
+    public boolean hasIncident(
+            IncidentType type,
+            String threadName) {
+
+        for (Incident incident : incidents) {
+
+            if (incident.getType() == type
+                    && threadName.equals(
+                    incident.getThreadName())) {
+
+                return true;
+            }
+        }
+
+        return false;
     }
 }
