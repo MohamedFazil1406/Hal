@@ -7,40 +7,59 @@ public class HALExceptionReporter {
             String className,
             String methodName) {
 
+        StackTraceElement[] stack =
+                throwable.getStackTrace();
+
+        String location = "Unknown";
+
+        if (stack.length > 0) {
+            location = stack[0].toString();
+        }
+
+        ExceptionEvent event =
+                new ExceptionEvent(
+                        throwable.getClass().getName(),
+                        throwable.getMessage(),
+                        className,
+                        methodName,
+                        location
+                );
+
+        print(event);
+    }
+
+    private static void print(
+            ExceptionEvent event) {
+
         System.out.println();
+
         System.out.println(
                 "===== HAL EXCEPTION DETECTED ====="
         );
 
         System.out.println(
                 "Exception: "
-                        + throwable.getClass().getName()
+                        + event.exceptionClass()
         );
 
         System.out.println(
                 "Message: "
-                        + throwable.getMessage()
+                        + event.message()
         );
 
         System.out.println(
                 "Class: "
-                        + className
+                        + event.className()
         );
 
         System.out.println(
                 "Method: "
-                        + methodName
+                        + event.methodName()
         );
 
-        StackTraceElement[] stack =
-                throwable.getStackTrace();
-
-        if (stack.length > 0) {
-
-            System.out.println(
-                    "Location: "
-                            + stack[0]
-            );
-        }
+        System.out.println(
+                "Location: "
+                        + event.location()
+        );
     }
 }

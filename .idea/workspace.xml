@@ -5,8 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="35894566-67be-4e75-8668-acf4efa0b623" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/hal-agent/src/main/java/com/hal/agent/HALExceptionReporter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hal-agent/src/main/java/com/hal/agent/ExceptionEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hal-agent/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/hal-agent/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hal-agent/src/main/java/com/hal/agent/HALExceptionReporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/hal-agent/src/main/java/com/hal/agent/HALExceptionReporter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hal-agent/target/classes/com/hal/agent/HALAgent.class" beforeDir="false" afterPath="$PROJECT_DIR$/hal-agent/target/classes/com/hal/agent/HALAgent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hal-agent/target/hal-agent-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/hal-agent/target/hal-agent-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hal-agent/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/hal-agent/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hal-agent/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/hal-agent/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hal-test-app/target/hal-test-app-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/hal-test-app/target/hal-test-app-1.0-SNAPSHOT.jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,61 +32,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.580281924222007" />
-      <entry key="MS500" value="2.4659248408392367" />
-      <entry key="S2" value="2.844123717535395" />
-      <entry key="S5" value="2.9355851280818195" />
-      <entry key="S10" value="2.967437004930021" />
-      <entry key="S30" value="2.9896490004000364" />
-      <entry key="S60" value="3.1105164801920657" />
-      <entry key="M2" value="4.666331452677122" />
-      <entry key="M5" value="11.918237167515315" />
-      <entry key="M10" value="20.294394886707213" />
-      <entry key="M15" value="26.139218217965606" />
-      <entry key="M30" value="42.88475032051046" />
-      <entry key="H1" value="83.77830172748446" />
-      <entry key="H2" value="152.11292133750322" />
-      <entry key="H4" value="222.82734841238724" />
-      <entry key="D1" value="319.57510241586033" />
-      <entry key="W1" value="341.2177056615649" />
+      <entry key="MS100" value="1.0969622244792236" />
+      <entry key="MS500" value="1.9915120501449421" />
+      <entry key="S2" value="2.6685223646546894" />
+      <entry key="S5" value="2.859289743557655" />
+      <entry key="S10" value="2.92821097375284" />
+      <entry key="S30" value="2.97574379860629" />
+      <entry key="S60" value="2.9878794564935776" />
+      <entry key="M2" value="3.012402289675547" />
+      <entry key="M5" value="4.302124591748289" />
+      <entry key="M10" value="9.713113854051642" />
+      <entry key="M15" value="15.503038576694257" />
+      <entry key="M30" value="32.660095818855396" />
+      <entry key="H1" value="72.67357507324384" />
+      <entry key="H2" value="141.71859909001847" />
+      <entry key="H4" value="215.79079707163626" />
+      <entry key="D1" value="320.12976128613224" />
+      <entry key="W1" value="343.84348430379333" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
       <entry key="MS500" value="0.0" />
       <entry key="S2" value="0.0" />
-      <entry key="S5" value="5.804345044401499E-140" />
-      <entry key="S10" value="2.409220837615659E-70" />
-      <entry key="S30" value="6.2224135317948456E-24" />
-      <entry key="S60" value="2.4944766047800168E-12" />
-      <entry key="M2" value="1.5793912133413999E-6" />
-      <entry key="M5" value="0.004779647704057374" />
-      <entry key="M10" value="0.06913499623242472" />
-      <entry key="M15" value="0.16844778153449713" />
-      <entry key="M30" value="0.4104239046820946" />
-      <entry key="H1" value="0.640643352171935" />
-      <entry key="H2" value="0.8004019941079199" />
-      <entry key="H4" value="0.8946518843147424" />
-      <entry key="D1" value="0.9816176233251509" />
-      <entry key="W1" value="0.9973530191518679" />
+      <entry key="S5" value="1.3151566881012434E-197" />
+      <entry key="S10" value="3.6265089109241727E-99" />
+      <entry key="S30" value="1.5363715259161697E-33" />
+      <entry key="S60" value="3.91965754360782E-17" />
+      <entry key="M2" value="6.2607168468217956E-9" />
+      <entry key="M5" value="5.231781826873001E-4" />
+      <entry key="M10" value="0.022873088612762837" />
+      <entry key="M15" value="0.08057801075171815" />
+      <entry key="M30" value="0.2838626617780475" />
+      <entry key="H1" value="0.5327876329064396" />
+      <entry key="H2" value="0.7299230321797219" />
+      <entry key="H4" value="0.8543553313345221" />
+      <entry key="D1" value="0.9741064573866453" />
+      <entry key="W1" value="0.9962592025455906" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.4547370598273837" />
-      <entry key="MS500" value="2.4231461449173675" />
-      <entry key="S2" value="2.831899976277634" />
-      <entry key="S5" value="2.930554204459618" />
-      <entry key="S10" value="2.96489716187277" />
-      <entry key="S30" value="2.9887961666599887" />
-      <entry key="S60" value="3.110017434005167" />
-      <entry key="M2" value="4.665606172817978" />
-      <entry key="M5" value="11.921883066420962" />
-      <entry key="M10" value="20.36243108508978" />
-      <entry key="M15" value="26.30664643219694" />
-      <entry key="M30" value="43.294326287564076" />
-      <entry key="H1" value="84.41821993124816" />
-      <entry key="H2" value="152.9127284107648" />
-      <entry key="H4" value="223.72158462304247" />
-      <entry key="D1" value="320.55662404109654" />
-      <entry key="W1" value="342.21504411690523" />
+      <entry key="MS100" value="0.9983762339062853" />
+      <entry key="MS500" value="1.9480556711060042" />
+      <entry key="S2" value="2.653309727116326" />
+      <entry key="S5" value="2.8527172683618836" />
+      <entry key="S10" value="2.924836790514745" />
+      <entry key="S30" value="2.974598862706443" />
+      <entry key="S60" value="2.9873044120119383" />
+      <entry key="M2" value="3.0121112509254564" />
+      <entry key="M5" value="4.302408249463631" />
+      <entry key="M10" value="9.735565672643448" />
+      <entry key="M15" value="15.583090374639074" />
+      <entry key="M30" value="32.943352767894964" />
+      <entry key="H1" value="73.20575001401394" />
+      <entry key="H2" value="142.44797477344125" />
+      <entry key="H4" value="216.64475304520232" />
+      <entry key="D1" value="321.10377207886484" />
+      <entry key="W1" value="344.83972890119605" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{

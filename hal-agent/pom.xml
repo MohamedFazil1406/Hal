@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
         <groupId>com.hal</groupId>
         <artifactId>hal</artifactId>
@@ -11,11 +15,7 @@
 
     <artifactId>hal-agent</artifactId>
 
-    <properties>
-        <maven.compiler.source>25</maven.compiler.source>
-        <maven.compiler.target>25</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
+    <packaging>jar</packaging>
 
     <dependencies>
 
@@ -39,24 +39,44 @@
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.4.2</version>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.6.1</version>
 
-                <configuration>
+                <executions>
 
-                    <archive>
+                    <execution>
 
-                        <manifestEntries>
+                        <phase>package</phase>
 
-                            <Premain-Class>
-                                com.hal.agent.HALAgent
-                            </Premain-Class>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
 
-                        </manifestEntries>
+                        <configuration>
 
-                    </archive>
+                            <createDependencyReducedPom>
+                                false
+                            </createDependencyReducedPom>
 
-                </configuration>
+                            <transformers>
+
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+
+                                    <manifestEntries>
+                                        <Premain-Class>
+                                            com.hal.agent.HALAgent
+                                        </Premain-Class>
+                                    </manifestEntries>
+
+                                </transformer>
+
+                            </transformers>
+
+                        </configuration>
+
+                    </execution>
+
+                </executions>
 
             </plugin>
 
