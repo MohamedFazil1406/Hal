@@ -19,5 +19,13 @@ public class HALAgent {
         System.out.println(
                 "================================"
         );
+
+        instrumentation.addTransformer(
+                new HALTransformer()
+        );
+
+        System.out.println(
+                "HAL exception transformer installed."
+        );
     }
 }
