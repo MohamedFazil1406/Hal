@@ -2,6 +2,7 @@ package com.hal;
 
 import com.hal.detector.HighCpuDetector;
 import com.hal.detector.MemoryDetector;
+import com.hal.incident.ExceptionEventServer;
 import com.hal.incident.IncidentManager;
 import com.hal.jvm.*;
 import com.hal.process.JVMDiscovery;
@@ -150,6 +151,13 @@ public class Main {
             IncidentManager incidentManager =
                     new IncidentManager();
 
+            ExceptionEventServer exceptionServer =
+                    new ExceptionEventServer(5005);
+
+            exceptionServer.start(
+                    incidentManager
+            );
+
             // =========================
             // MEMORY
             // =========================
@@ -296,6 +304,25 @@ public class Main {
             // =========================
             // DISCONNECT
             // =========================
+
+            // =========================
+// KEEP HAL RUNNING
+// =========================
+
+            System.out.println();
+            System.out.println("================================");
+            System.out.println(" HAL MONITORING ACTIVE");
+            System.out.println(" Listening for exception events");
+            System.out.println(" Port: 5005");
+            System.out.println("================================");
+
+            System.out.println();
+            System.out.println("Press ENTER to stop HAL.");
+
+            scanner.nextLine();
+            scanner.nextLine();
+
+            exceptionServer.stop();
 
             jmx.disconnect();
 

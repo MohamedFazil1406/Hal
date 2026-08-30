@@ -17,6 +17,7 @@ com\hal\detector\MemoryDetector.class
 com\hal\jvm\RemoteStackTraceMonitor.class
 com\hal\jvm\RemoteCpuMonitor.class
 com\hal\jvm\JVMInfo.class
+com\hal\incident\ExceptionEventServer.class
 com\hal\process\JVMDiscovery.class
 com\hal\detector\HighCpuDetector.class
 com\hal\incident\Incident.class

@@ -5,15 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="35894566-67be-4e75-8668-acf4efa0b623" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/hal-agent/src/main/java/com/hal/agent/ExceptionEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hal-agent/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/hal-agent/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hal-agent/src/main/java/com/hal/agent/HALExceptionReporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/hal-agent/src/main/java/com/hal/agent/HALExceptionReporter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hal-agent/target/classes/com/hal/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/hal-agent/target/classes/com/hal/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hal-agent/target/classes/com/hal/agent/ExceptionEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/hal-agent/target/classes/com/hal/agent/ExceptionEvent.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hal-agent/target/classes/com/hal/agent/HALAgent.class" beforeDir="false" afterPath="$PROJECT_DIR$/hal-agent/target/classes/com/hal/agent/HALAgent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hal-agent/target/hal-agent-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/hal-agent/target/hal-agent-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hal-agent/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/hal-agent/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hal-agent/target/classes/com/hal/agent/HALExceptionReporter.class" beforeDir="false" afterPath="$PROJECT_DIR$/hal-agent/target/classes/com/hal/agent/HALExceptionReporter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hal-agent/target/classes/com/hal/agent/HALTransformer$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hal-agent/target/classes/com/hal/agent/HALTransformer$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hal-agent/target/classes/com/hal/agent/HALTransformer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hal-agent/target/hal-agent-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hal-agent/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hal-agent/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/hal-agent/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/hal-agent/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hal-agent/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hal-agent/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hal-agent/target/original-hal-agent-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hal-test-app/target/classes/com/hal/test/DeadlockTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/hal-test-app/target/classes/com/hal/test/DeadlockTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hal-test-app/target/classes/com/hal/test/ExceptionTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/hal-test-app/target/classes/com/hal/test/ExceptionTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hal-test-app/target/classes/com/hal/test/TestApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/hal-test-app/target/classes/com/hal/test/TestApplication.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hal-test-app/target/hal-test-app-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/hal-test-app/target/hal-test-app-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hal-test-app/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/hal-test-app/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hal-test-app/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/hal-test-app/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hal-test-app/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/hal-test-app/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,61 +46,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0969622244792236" />
-      <entry key="MS500" value="1.9915120501449421" />
-      <entry key="S2" value="2.6685223646546894" />
-      <entry key="S5" value="2.859289743557655" />
-      <entry key="S10" value="2.92821097375284" />
-      <entry key="S30" value="2.97574379860629" />
-      <entry key="S60" value="2.9878794564935776" />
-      <entry key="M2" value="3.012402289675547" />
-      <entry key="M5" value="4.302124591748289" />
-      <entry key="M10" value="9.713113854051642" />
-      <entry key="M15" value="15.503038576694257" />
-      <entry key="M30" value="32.660095818855396" />
-      <entry key="H1" value="72.67357507324384" />
-      <entry key="H2" value="141.71859909001847" />
-      <entry key="H4" value="215.79079707163626" />
-      <entry key="D1" value="320.12976128613224" />
-      <entry key="W1" value="343.84348430379333" />
+      <entry key="MS100" value="1.8389407534651627" />
+      <entry key="MS500" value="2.639810590181348" />
+      <entry key="S2" value="2.900786907465818" />
+      <entry key="S5" value="2.959513482804407" />
+      <entry key="S10" value="2.979620483630631" />
+      <entry key="S30" value="2.9931775759940358" />
+      <entry key="S60" value="2.9992439880295683" />
+      <entry key="M2" value="3.130766928234265" />
+      <entry key="M5" value="4.674657654896331" />
+      <entry key="M10" value="8.905588323957753" />
+      <entry key="M15" value="13.961966452582896" />
+      <entry key="M30" value="30.266832412853994" />
+      <entry key="H1" value="68.89985166467147" />
+      <entry key="H2" value="138.0567497435714" />
+      <entry key="H4" value="214.80940907528148" />
+      <entry key="D1" value="325.88314159846584" />
+      <entry key="W1" value="351.49801712678925" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
       <entry key="MS500" value="0.0" />
       <entry key="S2" value="0.0" />
-      <entry key="S5" value="1.3151566881012434E-197" />
-      <entry key="S10" value="3.6265089109241727E-99" />
-      <entry key="S30" value="1.5363715259161697E-33" />
-      <entry key="S60" value="3.91965754360782E-17" />
-      <entry key="M2" value="6.2607168468217956E-9" />
-      <entry key="M5" value="5.231781826873001E-4" />
-      <entry key="M10" value="0.022873088612762837" />
-      <entry key="M15" value="0.08057801075171815" />
-      <entry key="M30" value="0.2838626617780475" />
-      <entry key="H1" value="0.5327876329064396" />
-      <entry key="H2" value="0.7299230321797219" />
-      <entry key="H4" value="0.8543553313345221" />
-      <entry key="D1" value="0.9741064573866453" />
-      <entry key="W1" value="0.9962592025455906" />
+      <entry key="S5" value="7.7222631729949E-250" />
+      <entry key="S10" value="2.778896034938137E-125" />
+      <entry key="S30" value="3.028940668486558E-42" />
+      <entry key="S60" value="1.7403852069259138E-21" />
+      <entry key="M2" value="4.1717924288319E-11" />
+      <entry key="M5" value="7.049025418786375E-5" />
+      <entry key="M10" value="0.008395847437147953" />
+      <entry key="M15" value="0.04130884246249076" />
+      <entry key="M30" value="0.20324576862136828" />
+      <entry key="H1" value="0.4508278702801857" />
+      <entry key="H2" value="0.6714371677827984" />
+      <entry key="H4" value="0.819412696864527" />
+      <entry key="D1" value="0.9673503241389827" />
+      <entry key="W1" value="0.9952691445193312" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9983762339062853" />
-      <entry key="MS500" value="1.9480556711060042" />
-      <entry key="S2" value="2.653309727116326" />
-      <entry key="S5" value="2.8527172683618836" />
-      <entry key="S10" value="2.924836790514745" />
-      <entry key="S30" value="2.974598862706443" />
-      <entry key="S60" value="2.9873044120119383" />
-      <entry key="M2" value="3.0121112509254564" />
-      <entry key="M5" value="4.302408249463631" />
-      <entry key="M10" value="9.735565672643448" />
-      <entry key="M15" value="15.583090374639074" />
-      <entry key="M30" value="32.943352767894964" />
-      <entry key="H1" value="73.20575001401394" />
-      <entry key="H2" value="142.44797477344125" />
-      <entry key="H4" value="216.64475304520232" />
-      <entry key="D1" value="321.10377207886484" />
-      <entry key="W1" value="344.83972890119605" />
+      <entry key="MS100" value="1.7160559960076593" />
+      <entry key="MS500" value="2.60174629063786" />
+      <entry key="S2" value="2.8901327771984664" />
+      <entry key="S5" value="2.955148633982326" />
+      <entry key="S10" value="2.977420363344048" />
+      <entry key="S30" value="2.9924402210024335" />
+      <entry key="S60" value="2.998872778852506" />
+      <entry key="M2" value="3.1305357543287964" />
+      <entry key="M5" value="4.674448622775365" />
+      <entry key="M10" value="8.913607530896963" />
+      <entry key="M15" value="14.002822033045778" />
+      <entry key="M30" value="30.46952989336996" />
+      <entry key="H1" value="69.35009690423982" />
+      <entry key="H2" value="138.72764943114584" />
+      <entry key="H4" value="215.62842125746863" />
+      <entry key="D1" value="326.8503939354403" />
+      <entry key="W1" value="352.49327125234214" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -101,32 +115,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "Application.TestApplication.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "D:/fazil/100Xdev/Hal/hal-agent/src/main/java/com/hal/Main.java",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "to.speed.mode.migration.done": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestApplication.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;D:/fazil/100Xdev/Hal/hal-agent/src/main/java/com/hal/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\fazil\100Xdev\Hal\hal-test-app\src\main\java\com\hal\test" />

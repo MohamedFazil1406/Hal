@@ -1,6 +1,12 @@
 package com.hal.agent;
 
+import java.io.PrintWriter;
+import java.net.Socket;
+
 public class HALExceptionReporter {
+
+    private static final String HOST = "localhost";
+    private static final int PORT = 5005;
 
     public static void report(
             Throwable throwable,
@@ -26,6 +32,8 @@ public class HALExceptionReporter {
                 );
 
         print(event);
+
+        send(event);
     }
 
     private static void print(
@@ -61,5 +69,43 @@ public class HALExceptionReporter {
                 "Location: "
                         + event.location()
         );
+    }
+
+    private static void send(
+            ExceptionEvent event) {
+
+        try (
+                Socket socket =
+                        new Socket(HOST, PORT);
+
+                PrintWriter writer =
+                        new PrintWriter(
+                                socket.getOutputStream(),
+                                true
+                        )
+        ) {
+
+            writer.println(
+                    event.exceptionClass()
+                            + "|"
+                            + event.message()
+                            + "|"
+                            + event.className()
+                            + "|"
+                            + event.methodName()
+                            + "|"
+                            + event.location()
+            );
+
+            System.out.println(
+                    "Exception event sent to HAL."
+            );
+
+        } catch (Exception e) {
+
+            System.out.println(
+                    "Could not send exception event to HAL."
+            );
+        }
     }
 }

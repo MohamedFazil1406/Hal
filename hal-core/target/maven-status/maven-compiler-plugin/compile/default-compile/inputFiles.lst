@@ -2,6 +2,7 @@ D:\fazil\100Xdev\Hal\hal-core\src\main\java\com\hal\detector\ExceptionDetector.j
 D:\fazil\100Xdev\Hal\hal-core\src\main\java\com\hal\detector\HighCpuDetector.java
 D:\fazil\100Xdev\Hal\hal-core\src\main\java\com\hal\detector\LockContentionDetector.java
 D:\fazil\100Xdev\Hal\hal-core\src\main\java\com\hal\detector\MemoryDetector.java
+D:\fazil\100Xdev\Hal\hal-core\src\main\java\com\hal\incident\ExceptionEventServer.java
 D:\fazil\100Xdev\Hal\hal-core\src\main\java\com\hal\incident\Incident.java
 D:\fazil\100Xdev\Hal\hal-core\src\main\java\com\hal\incident\IncidentManager.java
 D:\fazil\100Xdev\Hal\hal-core\src\main\java\com\hal\incident\IncidentSeverity.java
